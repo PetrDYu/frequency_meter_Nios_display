@@ -1,2 +1,2 @@
-# frequncy_meter_Nios_display
+# frequency_meter_Nios_display
  Проект частотомера с выводом значений на подключенный дисплей
