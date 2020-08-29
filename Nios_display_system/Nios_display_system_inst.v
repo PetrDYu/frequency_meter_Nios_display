@@ -17,7 +17,8 @@
 		.sdram_dqm       (<connected-to-sdram_dqm>),       //          .dqm
 		.sdram_ras_n     (<connected-to-sdram_ras_n>),     //          .ras_n
 		.sdram_we_n      (<connected-to-sdram_we_n>),      //          .we_n
+		.sdram_clk_clk   (<connected-to-sdram_clk_clk>),   // sdram_clk.clk
 		.sw_export       (<connected-to-sw_export>),       //        sw.export
-		.sdram_clk_clk   (<connected-to-sdram_clk_clk>)    // sdram_clk.clk
+		.freq_en_export  (<connected-to-freq_en_export>)   //   freq_en.export
 	);
 
