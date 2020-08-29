@@ -1,6 +1,6 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="91a896beeffa7576b058"/>
+    <hash md5_digest_80b="0bec717f531a0ed6fccd"/>
   </project>
   <file_info>
     <file device="5CSEMA5F31C6" path="frequency_meter_Nios_display.sof" usercode="0xFFFFFFFF"/>
@@ -99,7 +99,7 @@
     </sld_info>
     <sld_info hpath="Nios_display_system:u0" name="u0">
       <assignment_values>
-        <assignment_value text="QSYS_NAME Nios_display_system HAS_SOPCINFO 1 GENERATION_ID 1598656873"/>
+        <assignment_value text="QSYS_NAME Nios_display_system HAS_SOPCINFO 1 GENERATION_ID 1598707242"/>
       </assignment_values>
       <parameters/>
     </sld_info>

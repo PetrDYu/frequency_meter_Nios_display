@@ -18,8 +18,9 @@
 			sdram_dqm       : out   std_logic_vector(1 downto 0);                     -- dqm
 			sdram_ras_n     : out   std_logic;                                        -- ras_n
 			sdram_we_n      : out   std_logic;                                        -- we_n
+			sdram_clk_clk   : out   std_logic;                                        -- clk
 			sw_export       : in    std_logic_vector(9 downto 0)  := (others => 'X'); -- export
-			sdram_clk_clk   : out   std_logic                                         -- clk
+			freq_en_export  : in    std_logic                     := 'X'              -- export
 		);
 	end component Nios_display_system;
 
@@ -43,7 +44,8 @@
 			sdram_dqm       => CONNECTED_TO_sdram_dqm,       --          .dqm
 			sdram_ras_n     => CONNECTED_TO_sdram_ras_n,     --          .ras_n
 			sdram_we_n      => CONNECTED_TO_sdram_we_n,      --          .we_n
+			sdram_clk_clk   => CONNECTED_TO_sdram_clk_clk,   -- sdram_clk.clk
 			sw_export       => CONNECTED_TO_sw_export,       --        sw.export
-			sdram_clk_clk   => CONNECTED_TO_sdram_clk_clk    -- sdram_clk.clk
+			freq_en_export  => CONNECTED_TO_freq_en_export   --   freq_en.export
 		);
 

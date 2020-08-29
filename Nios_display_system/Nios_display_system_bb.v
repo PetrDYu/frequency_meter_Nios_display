@@ -18,8 +18,9 @@ module Nios_display_system (
 	sdram_dqm,
 	sdram_ras_n,
 	sdram_we_n,
+	sdram_clk_clk,
 	sw_export,
-	sdram_clk_clk);	
+	freq_en_export);	
 
 	input		clk_clk;
 	input	[31:0]	freq_export;
@@ -39,6 +40,7 @@ module Nios_display_system (
 	output	[1:0]	sdram_dqm;
 	output		sdram_ras_n;
 	output		sdram_we_n;
-	input	[9:0]	sw_export;
 	output		sdram_clk_clk;
+	input	[9:0]	sw_export;
+	input		freq_en_export;
 endmodule
