@@ -45,7 +45,6 @@ void task_lcd_write(void *p)
 		xQueueReceive(Queue_lcd_data, &data, portMAX_DELAY);
 		xQueueReceive(Queue_lcd_rs, &rs, portMAX_DELAY);
 		write(data, rs);
-		while(!read_busy());
 	}
 }
 int main()

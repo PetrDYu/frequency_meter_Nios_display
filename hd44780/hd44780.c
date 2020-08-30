@@ -51,9 +51,6 @@
 
 //временная мера
 typedef int bool;
-#include <string.h>
-
-
 
 /*typedef enum
 {
@@ -87,7 +84,7 @@ static volatile hd44780_task_t Queue[HD44780_QUEUE_SIZE];
 static volatile alt_u16            Queue_Head = 0;
 static volatile alt_u16            Queue_Tail = 0;*/
 
-//#pragma diag_warning 188
+#pragma diag_warning 188
 
 
 static void set_output(const bool output)
@@ -109,24 +106,6 @@ static void enable(const bool pulse)
 	vTaskDelay(1);
 }
 
-static void write(const alt_u8 data, const bool reg)
-{
-	set_output(TRUE);
-	//alt_putstr("set_output TRUE\n");
-	
-	IOWR_ALTERA_AVALON_PIO_DATA(LCD_RW_BASE, 0);
-	//alt_putstr("RW 0\n");
-	IOWR_ALTERA_AVALON_PIO_DATA(LCD_RS_BASE, reg);
-	//alt_putstr("RS installed\n");
-	
-	if (MODE_8_OR_4 == 8) IOWR_ALTERA_AVALON_PIO_DATA(LCD_DATA_BASE, data);
-	else IOWR_ALTERA_AVALON_PIO_DATA(LCD_DATA_BASE, data << 4);
-	//alt_putstr("data installed\n");
-	
-	enable(TRUE);
-	//alt_putstr("enable\n");
-}
-
 static bool read_busy(void)
 {
 	alt_u8 data;
@@ -144,6 +123,25 @@ static bool read_busy(void)
 
 	return (FALSE);
 
+}
+
+static void write(const alt_u8 data, const bool reg)
+{
+	set_output(TRUE);
+	//alt_putstr("set_output TRUE\n");
+	
+	IOWR_ALTERA_AVALON_PIO_DATA(LCD_RW_BASE, 0);
+	//alt_putstr("RW 0\n");
+	IOWR_ALTERA_AVALON_PIO_DATA(LCD_RS_BASE, reg);
+	//alt_putstr("RS installed\n");
+	
+	if (MODE_8_OR_4 == 8) IOWR_ALTERA_AVALON_PIO_DATA(LCD_DATA_BASE, data);
+	else IOWR_ALTERA_AVALON_PIO_DATA(LCD_DATA_BASE, data << 4);
+	//alt_putstr("data installed\n");
+	
+	enable(TRUE);
+	//alt_putstr("enable\n");
+	while(!read_busy());
 }
 
 /**
@@ -328,6 +326,7 @@ void hd44780_init(xQueueHandle Queue_lcd_data, xQueueHandle Queue_lcd_rs, xSemap
 	//function set
 	if( xSemaphoreTake( Mutex_write_lcd, portMAX_DELAY ) == pdTRUE )
 	{
+		vTaskDelay(35*10);
 		data = 0x3C;
 		xQueueSendToBack(Queue_lcd_data, &data, portMAX_DELAY);
 		xQueueSendToBack(Queue_lcd_rs, &rs, portMAX_DELAY);
