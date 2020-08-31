@@ -20,7 +20,7 @@ void sayHello( void *p){
 	int data4 = 20;
 while(1){
 	printf("Hello, world!\n");
-	hd44780_printf(Queue_lcd_data, Queue_lcd_rs, Mutex_write_lcd, data, data2, data3, data4);
+	//hd44780_printf(Queue_lcd_data, Queue_lcd_rs, Mutex_write_lcd, data, data2, data3, data4);
 
 	vTaskDelay(1000*10);
  }
@@ -30,9 +30,9 @@ while(1){
 void sayInBitween (void *p){
 while(1){
  printf("In between\n");
- IOWR_ALTERA_AVALON_PIO_DATA(LED_BASE, 1 << n);
+ /*IOWR_ALTERA_AVALON_PIO_DATA(LED_BASE, 1 << n);
  n++;
- if (n == 10) n = 0;
+ if (n == 10) n = 0;*/
  vTaskDelay(300*10);
  }
 }
@@ -47,6 +47,29 @@ void task_lcd_write(void *p)
 		write(data, rs);
 	}
 }
+
+void freq_to_lcd(void *p)
+{
+	int write_en = 0;
+	while(1)
+	{
+		if(IORD_ALTERA_AVALON_PIO_DATA(FREQ_EN_BASE))
+		{
+			write_en++;
+			if (write_en == 1)
+			{
+				hd44780_home(Queue_lcd_data, Queue_lcd_rs, Mutex_write_lcd);
+				hd44780_printf(Queue_lcd_data, Queue_lcd_rs, Mutex_write_lcd, "chastota = %d", IORD_ALTERA_AVALON_PIO_DATA(FREQ_BASE));
+				IOWR_ALTERA_AVALON_PIO_DATA(LED_BASE, 1 << n);
+				n++;
+				if (n == 10) n = 0;
+			}
+		}
+		else write_en = 0;
+	}
+
+}
+
 int main()
 {
 	alt_putstr("Hello from Nios II!\n");
@@ -55,9 +78,10 @@ int main()
 	Mutex_write_lcd = xSemaphoreCreateMutex();
 	xTaskCreate(task_lcd_write, "task_lcd_write", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
 	xTaskCreate(sayHello, "sayHello", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
-	printf("sayHello inst\n");
+	xTaskCreate(freq_to_lcd, "freq_to_lcd", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
+	//printf("sayHello inst\n");
 	xTaskCreate(sayInBitween, "sayInBitween",configMINIMAL_STACK_SIZE,NULL,2,NULL);
-	printf("sayInBitween inst\n");
+	//printf("sayInBitween inst\n");
 	vTaskStartScheduler();
 	return 0;
 }

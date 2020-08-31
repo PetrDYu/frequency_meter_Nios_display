@@ -1,5 +1,5 @@
 Flow report for frequency_meter_Nios_display
-Sat Aug 29 16:30:22 2020
+Tue Sep 01 02:02:41 2020
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 
 
@@ -41,15 +41,15 @@ agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Flow Summary                                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Sat Aug 29 16:29:39 2020           ;
+; Flow Status                     ; Successful - Tue Sep 01 02:01:56 2020           ;
 ; Quartus Prime Version           ; 16.0.0 Build 211 04/27/2016 SJ Standard Edition ;
 ; Revision Name                   ; frequency_meter_Nios_display                    ;
 ; Top-level Entity Name           ; frequency_meter_Nios_display                    ;
 ; Family                          ; Cyclone V                                       ;
 ; Device                          ; 5CSEMA5F31C6                                    ;
 ; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; 1,889 / 32,070 ( 6 % )                          ;
-; Total registers                 ; 2742                                            ;
+; Logic utilization (in ALMs)     ; 1,931 / 32,070 ( 6 % )                          ;
+; Total registers                 ; 2917                                            ;
 ; Total pins                      ; 181 / 457 ( 40 % )                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 2,865,024 / 4,065,280 ( 70 % )                  ;
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+------------------------------+
 ; Option            ; Setting                      ;
 +-------------------+------------------------------+
-; Start date & time ; 08/29/2020 16:23:20          ;
+; Start date & time ; 09/01/2020 01:55:30          ;
 ; Main task         ; Compilation                  ;
 ; Revision Name     ; frequency_meter_Nios_display ;
 +-------------------+------------------------------+
@@ -79,9 +79,10 @@ agreement for further details.
 +-------------------------------------+-----------------------------------------------------------------------+---------------+---------------------+------------+
 ; Assignment Name                     ; Value                                                                 ; Default Value ; Entity Name         ; Section Id ;
 +-------------------------------------+-----------------------------------------------------------------------+---------------+---------------------+------------+
-; COMPILER_SIGNATURE_ID               ; 44883549519213.159870739907152                                        ; --            ; --                  ; --         ;
+; COMPILER_SIGNATURE_ID               ; 44883549519213.159891452911512                                        ; --            ; --                  ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                                    ; --            ; --                  ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                                     ; --            ; --                  ; --         ;
+; MISC_FILE                           ; freq_m_module/Counter_bb.v                                            ; --            ; --                  ; --         ;
 ; MISC_FILE                           ; Nios_display_system/synthesis/../Nios_display_system.cmp              ; --            ; --                  ; --         ;
 ; MISC_FILE                           ; Nios_display_system/synthesis/../../Nios_display_system.qsys          ; --            ; --                  ; --         ;
 ; PARTITION_COLOR                     ; 16764057                                                              ; --            ; --                  ; Top        ;
@@ -102,11 +103,11 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:01:33     ; 1.0                     ; 5303 MB             ; 00:01:58                           ;
-; Fitter                    ; 00:04:12     ; 1.1                     ; 6879 MB             ; 00:07:01                           ;
-; Assembler                 ; 00:00:21     ; 1.0                     ; 5121 MB             ; 00:00:17                           ;
-; TimeQuest Timing Analyzer ; 00:00:41     ; 1.5                     ; 5636 MB             ; 00:00:55                           ;
-; Total                     ; 00:06:47     ; --                      ; --                  ; 00:10:11                           ;
+; Analysis & Synthesis      ; 00:01:39     ; 1.0                     ; 5307 MB             ; 00:01:56                           ;
+; Fitter                    ; 00:04:12     ; 1.1                     ; 6911 MB             ; 00:07:12                           ;
+; Assembler                 ; 00:00:23     ; 1.0                     ; 5130 MB             ; 00:00:18                           ;
+; TimeQuest Timing Analyzer ; 00:00:42     ; 1.5                     ; 5639 MB             ; 00:00:57                           ;
+; Total                     ; 00:06:56     ; --                      ; --                  ; 00:10:23                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
