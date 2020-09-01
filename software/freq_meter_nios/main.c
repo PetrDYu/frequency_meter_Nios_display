@@ -3,6 +3,8 @@
 #include "system.h"
 #include <stdio.h>
 #include <stdarg.h>
+//#include <string.h>
+#include <stdlib.h>
 #include "FreeRTOS.h"
 #include "semphr.h"
 #include "queue.h"
@@ -16,8 +18,8 @@ xSemaphoreHandle Mutex_write_lcd;
 int n = 0;
 
 void sayHello( void *p){
-	char data[] = "%s, %s, %d, ", data2[] = "asd", data3[] = "sdf";
-	int data4 = 20;
+	//char data[] = "%s, %s, %d, ", data2[] = "asd", data3[] = "sdf";
+	//int data4 = 20;
 while(1){
 	printf("Hello, world!\n");
 	//hd44780_printf(Queue_lcd_data, Queue_lcd_rs, Mutex_write_lcd, data, data2, data3, data4);
@@ -44,13 +46,14 @@ void task_lcd_write(void *p)
 	{
 		xQueueReceive(Queue_lcd_data, &data, portMAX_DELAY);
 		xQueueReceive(Queue_lcd_rs, &rs, portMAX_DELAY);
-		write(data, rs);
+		hd44780_write(data, rs);
 	}
 }
 
 void freq_to_lcd(void *p)
 {
 	int write_en = 0;
+	char zagolovok [] = {0xAB,0x61,0x63,0xBF,0x6F,0xBF,0x61}, znachenie;
 	while(1)
 	{
 		if(IORD_ALTERA_AVALON_PIO_DATA(FREQ_EN_BASE))
@@ -59,7 +62,12 @@ void freq_to_lcd(void *p)
 			if (write_en == 1)
 			{
 				hd44780_home(Queue_lcd_data, Queue_lcd_rs, Mutex_write_lcd);
-				hd44780_printf(Queue_lcd_data, Queue_lcd_rs, Mutex_write_lcd, "chastota = %d", IORD_ALTERA_AVALON_PIO_DATA(FREQ_BASE));
+				hd44780_print(Queue_lcd_data, Queue_lcd_rs, Mutex_write_lcd, zagolovok);
+				hd44780_print(Queue_lcd_data, Queue_lcd_rs, Mutex_write_lcd, " = ");
+				itoa(IORD_ALTERA_AVALON_PIO_DATA(FREQ_BASE), znachenie, 10);
+				hd44780_print(Queue_lcd_data, Queue_lcd_rs, Mutex_write_lcd, znachenie);
+				//printf("%X\n", 'À');
+				printf("%s", rus_letter_mas[0]);
 				IOWR_ALTERA_AVALON_PIO_DATA(LED_BASE, 1 << n);
 				n++;
 				if (n == 10) n = 0;

@@ -49,43 +49,16 @@
 #define FALSE	0
 #define MODE_8_OR_4 8
 
-//временная мера
 typedef int bool;
 
-/*typedef enum
-{
-	HD44780_WAIT = 1, HD44780_WAIT_NOT_BUSY, HD44780_WRITE
-} hd44780_command_t;
-
-typedef struct
-{
-	hd44780_command_t command;
-	bool              reg;
-	alt_u16               data;
-	int8_t            nibble;
-} hd44780_task_t;
-
-typedef struct
-{
-	GPIO_TypeDef* gpio;
-	u32 rs;
-	u32 rw;
-	u32 e;
-	u32 db4;
-	u32 db5;
-	u32 db6;
-	u32 db7;
-	u8 lines;
-	u8 font;
-} hd44780_conf_t;
-
-static hd44780_conf_t          Lcd_Conf;
-static volatile hd44780_task_t Queue[HD44780_QUEUE_SIZE];
-static volatile alt_u16            Queue_Head = 0;
-static volatile alt_u16            Queue_Tail = 0;*/
+#include <string.h>
 
 #pragma diag_warning 188
 
+char rus_code_mas[] = {0x41,0xA0,0x42,0xA1,0xE0,0x45,0xA2,0xA3,0xA4,0xA5,0xA6,0x4B,0xA7,0x4D,0x48,0x4F,0xA8,0x50,0x43,0x54,0xA9,0xAA,0x58,0xE1,0xAB,0xAC,0xE2,0xAD,0xAE,0x62,0xAF,0xB0,0xB1,0x61,0xB2,0xB3,0xB4,0xE3,0x65,0xB5,0xB6,0xB7,0xB8,0xB9,0xBA,0xBB,0xBC,0xBD,0x6F,0xBE,0x70,0x63,0xBF,0x79,0xE4,0x78,0xE5,0xC0,0xC1,0xE6,0xC2,0xC3,0xC4,0xC5,0xC6,0xC7};
+char rus_letter_mas[] = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+//char rus_letter_mas[] = {'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я', 'а', 'б', 'в', 'г', 'д', 'е','ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я'};
+//char rus_letter_mas[] = {"А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ы", "Ь", "Э", "Ю", "Я", "а", "б", "в", "г", "д", "е","ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я"};
 
 static void set_output(const bool output)
 {
@@ -125,7 +98,7 @@ static bool read_busy(void)
 
 }
 
-static void write(const alt_u8 data, const bool reg)
+static void hd44780_write(const alt_u8 data, const bool reg)
 {
 	set_output(TRUE);
 	//alt_putstr("set_output TRUE\n");
@@ -233,7 +206,6 @@ void hd44780_position(xQueueHandle Queue_lcd_data, xQueueHandle Queue_lcd_rs, xS
  * @param pos	UDG number
  * @param udg	UDG definition
  */
- //необходимо проработать вопрос о записи элементо массива в очередь подряд без перерыва
 void hd44780_cgram(xQueueHandle Queue_lcd_data, xQueueHandle Queue_lcd_rs, xSemaphoreHandle Mutex_write_lcd, const alt_u8 pos, const char udg[8])
 {
 	alt_u8 i;
@@ -269,9 +241,23 @@ void hd44780_put(xQueueHandle Queue_lcd_data, xQueueHandle Queue_lcd_rs, xSemaph
 	int rs = 1;
 	if( xSemaphoreTake( Mutex_write_lcd, portMAX_DELAY ) == pdTRUE )
 	{
-		xQueueSendToBack(Queue_lcd_data, &chr, portMAX_DELAY);
-		xQueueSendToBack(Queue_lcd_rs, &rs, portMAX_DELAY);
-		xSemaphoreGive( Mutex_write_lcd );
+		//char * char_pos = strchr(rus_letter_mas, (int)chr);
+		//char * char_pos = strstr(rus_letter_mas, &chr);
+		//printf("char = %s, char_pos = %d\n", chr, (int)char_pos);
+		/*if (char_pos == NULL)
+		{*/
+			xQueueSendToBack(Queue_lcd_data, &chr, portMAX_DELAY);
+			xQueueSendToBack(Queue_lcd_rs, &rs, portMAX_DELAY);
+			xSemaphoreGive( Mutex_write_lcd );
+		/*}
+		else
+		{
+			char_pos = (char_pos - rus_letter_mas);
+			printf("char_pos_int = %d\n", (int)char_pos);
+			xQueueSendToBack(Queue_lcd_data, &rus_code_mas[(int)char_pos], portMAX_DELAY);
+			xQueueSendToBack(Queue_lcd_rs, &rs, portMAX_DELAY);
+			xSemaphoreGive( Mutex_write_lcd );
+		}*/
 	}
 }
 

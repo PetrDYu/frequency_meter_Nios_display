@@ -51,7 +51,7 @@ typedef enum
 	HD44780_FONT_5x8  = 0x00,		/**< Standard Font */
 	HD44780_FONT_5x10 = 0x04 		/**< Large Font */
 } hd44780_font_t;
-
+static void hd44780_write(const alt_u8 data, const bool reg);
 void hd44780_clear(xQueueHandle Queue_lcd_data, xQueueHandle Queue_lcd_rs, xSemaphoreHandle Mutex_write_lcd);
 void hd44780_home(xQueueHandle Queue_lcd_data, xQueueHandle Queue_lcd_rs, xSemaphoreHandle Mutex_write_lcd);
 void hd44780_display(xQueueHandle Queue_lcd_data, xQueueHandle Queue_lcd_rs, xSemaphoreHandle Mutex_write_lcd, const bool enable, const bool cursor, const bool blink);
