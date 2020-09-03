@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>01.09.2020 2:50:10</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1598914210703</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>03.09.2020 13:55:03</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1599126903048</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\petry\OneDrive\Documents\GitHub\frequency_meter_Nios_display\software\freq_meter_nios_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\Nios_display_system.sopcinfo</SopcDesignFile>

@@ -56,8 +56,10 @@ void freq_to_lcd(void *p)
 	char zagolovok [] = {0xAB,0x61,0x63,0xBF,0x6F,0xBF,0x61}, znachenie;
 	while(1)
 	{
+		//printf("to lcd");
 		if(IORD_ALTERA_AVALON_PIO_DATA(FREQ_EN_BASE))
 		{
+			//printf("to lcd");
 			write_en++;
 			if (write_en == 1)
 			{
@@ -67,7 +69,7 @@ void freq_to_lcd(void *p)
 				itoa(IORD_ALTERA_AVALON_PIO_DATA(FREQ_BASE), znachenie, 10);
 				hd44780_print(Queue_lcd_data, Queue_lcd_rs, Mutex_write_lcd, znachenie);
 				//printf("%X\n", 'À');
-				printf("%s", rus_letter_mas[0]);
+				//printf("%s", rus_letter_mas[0]);
 				IOWR_ALTERA_AVALON_PIO_DATA(LED_BASE, 1 << n);
 				n++;
 				if (n == 10) n = 0;
