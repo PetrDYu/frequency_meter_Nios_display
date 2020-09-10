@@ -55,7 +55,7 @@ module frequency_meter_Nios_display(
 //=======================================================
 
 wire cout_i, cout_b, clk_base, clk_in;
-reg freq_en = 0, count_en = 0;
+reg freq_en = 0, count_en = 0, led_out = 0;
 reg [7:0] count_clk;
 wire [31:0] freq_mem; //регистр-хранилище для данных об измеряемой частоте
 
@@ -103,7 +103,7 @@ Nios_display_system u0 (
 (
 	
 	.clk_base(clk_base),
-	.clk_in(clk_in),
+	.clk_in(CLOCK_50),
 	.freq_mem(freq_mem),
 	.cout_i(cout_i),
 	.cout_b(cout_b)
