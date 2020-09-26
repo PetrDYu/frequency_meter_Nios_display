@@ -1,0 +1,37 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst Nios_display_system.jtag_uart_0 -pg 1 -lvl 4 -y 30
+preplace inst Nios_display_system.nios2_gen2_0.cpu -pg 1
+preplace inst Nios_display_system.lcd_rs -pg 1 -lvl 4 -y 910
+preplace inst Nios_display_system.clk_0 -pg 1 -lvl 1 -y 400
+preplace inst Nios_display_system.sw -pg 1 -lvl 4 -y 1210
+preplace inst Nios_display_system.lcd_rw -pg 1 -lvl 4 -y 1010
+preplace inst Nios_display_system.nios2_gen2_0.reset_bridge -pg 1
+preplace inst Nios_display_system -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst Nios_display_system.sysid_qsys_0 -pg 1 -lvl 4 -y 630
+preplace inst Nios_display_system.nios2_gen2_0 -pg 1 -lvl 3 -y 120
+preplace inst Nios_display_system.led -pg 1 -lvl 4 -y 1110
+preplace inst Nios_display_system.lcd_data -pg 1 -lvl 4 -y 710
+preplace inst Nios_display_system.onchip_memory2_0 -pg 1 -lvl 4 -y 550
+preplace inst Nios_display_system.nios2_gen2_0.clock_bridge -pg 1
+preplace inst Nios_display_system.key -pg 1 -lvl 4 -y 1310
+preplace inst Nios_display_system.freq_en -pg 1 -lvl 4 -y 130
+preplace inst Nios_display_system.freq -pg 1 -lvl 4 -y 330
+preplace inst Nios_display_system.lcd_e -pg 1 -lvl 4 -y 810
+preplace netloc FAN_OUT<net_container>Nios_display_system</net_container>(SLAVE)freq.clk,(SLAVE)lcd_rs.clk,(SLAVE)lcd_data.clk,(SLAVE)jtag_uart_0.clk,(SLAVE)freq_en.clk,(SLAVE)onchip_memory2_0.clk1,(SLAVE)led.clk,(SLAVE)sysid_qsys_0.clk,(SLAVE)lcd_rw.clk,(SLAVE)key.clk,(SLAVE)sw.clk,(MASTER)clk_0.clk,(SLAVE)lcd_e.clk,(SLAVE)nios2_gen2_0.clk) 1 1 3 NJ 410 350 410 930
+preplace netloc EXPORT<net_container>Nios_display_system</net_container>(SLAVE)Nios_display_system.lcd_e,(SLAVE)lcd_e.external_connection) 1 0 4 NJ 840 NJ 840 NJ 840 NJ
+preplace netloc EXPORT<net_container>Nios_display_system</net_container>(SLAVE)clk_0.clk_in,(SLAVE)Nios_display_system.clk) 1 0 1 NJ
+preplace netloc EXPORT<net_container>Nios_display_system</net_container>(SLAVE)lcd_rs.external_connection,(SLAVE)Nios_display_system.lcd_rs) 1 0 4 NJ 940 NJ 940 NJ 940 NJ
+preplace netloc EXPORT<net_container>Nios_display_system</net_container>(SLAVE)Nios_display_system.lcd_data,(SLAVE)lcd_data.external_connection) 1 0 4 NJ 740 NJ 740 NJ 740 NJ
+preplace netloc FAN_OUT<net_container>Nios_display_system</net_container>(SLAVE)freq_en.reset,(SLAVE)nios2_gen2_0.reset,(SLAVE)jtag_uart_0.reset,(SLAVE)sysid_qsys_0.reset,(MASTER)clk_0.clk_reset,(SLAVE)led.reset,(SLAVE)sw.reset,(SLAVE)lcd_rw.reset,(SLAVE)lcd_rs.reset,(SLAVE)lcd_data.reset,(SLAVE)key.reset,(SLAVE)lcd_e.reset,(SLAVE)freq.reset,(SLAVE)onchip_memory2_0.reset1) 1 1 3 NJ 430 370 430 970
+preplace netloc EXPORT<net_container>Nios_display_system</net_container>(SLAVE)sw.external_connection,(SLAVE)Nios_display_system.sw) 1 0 4 NJ 1240 NJ 1240 NJ 1240 NJ
+preplace netloc EXPORT<net_container>Nios_display_system</net_container>(SLAVE)Nios_display_system.led,(SLAVE)led.external_connection) 1 0 4 NJ 1140 NJ 1140 NJ 1140 NJ
+preplace netloc EXPORT<net_container>Nios_display_system</net_container>(SLAVE)Nios_display_system.lcd_rw,(SLAVE)lcd_rw.external_connection) 1 0 4 NJ 1040 NJ 1040 NJ 1040 NJ
+preplace netloc EXPORT<net_container>Nios_display_system</net_container>(SLAVE)Nios_display_system.key,(SLAVE)key.external_connection) 1 0 4 NJ 1340 NJ 1340 NJ 1340 NJ
+preplace netloc INTERCONNECT<net_container>Nios_display_system</net_container>(SLAVE)jtag_uart_0.avalon_jtag_slave,(SLAVE)lcd_data.s1,(SLAVE)led.s1,(SLAVE)sysid_qsys_0.control_slave,(SLAVE)onchip_memory2_0.s1,(SLAVE)key.s1,(SLAVE)nios2_gen2_0.debug_mem_slave,(SLAVE)freq.s1,(SLAVE)freq_en.s1,(SLAVE)lcd_rw.s1,(SLAVE)sw.s1,(SLAVE)lcd_e.s1,(MASTER)nios2_gen2_0.instruction_master,(MASTER)nios2_gen2_0.data_master,(SLAVE)lcd_rs.s1) 1 2 2 390 260 910
+preplace netloc EXPORT<net_container>Nios_display_system</net_container>(SLAVE)Nios_display_system.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>Nios_display_system</net_container>(SLAVE)Nios_display_system.freq,(SLAVE)freq.external_connection) 1 0 4 NJ 360 NJ 360 NJ 360 NJ
+preplace netloc POINT_TO_POINT<net_container>Nios_display_system</net_container>(MASTER)nios2_gen2_0.irq,(SLAVE)jtag_uart_0.irq) 1 3 1 890
+preplace netloc EXPORT<net_container>Nios_display_system</net_container>(SLAVE)Nios_display_system.freq_en,(SLAVE)freq_en.external_connection) 1 0 4 NJ 280 NJ 280 NJ 280 NJ
+levelinfo -pg 1 0 60 1200
+levelinfo -hier Nios_display_system 70 100 330 650 1040 1190

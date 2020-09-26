@@ -1,0 +1,29 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "LEDR[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SPI_DOUT",
+					"strict" : false
+				},
+				{
+					"name" : "SPI_SS",
+					"strict" : false
+				},
+				{
+					"name" : "SPI_SCK",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
