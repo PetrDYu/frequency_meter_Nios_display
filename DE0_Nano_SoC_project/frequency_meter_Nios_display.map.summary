@@ -1,4 +1,4 @@
-Analysis & Synthesis Status : Successful - Sat Sep 26 19:35:57 2020
+Analysis & Synthesis Status : Successful - Tue Oct 06 11:06:29 2020
 Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 Revision Name : frequency_meter_Nios_display
 Top-level Entity Name : frequency_meter_Nios_display
@@ -8,5 +8,10 @@ Total registers : N/A until Partition Merge
 Total pins : N/A until Partition Merge
 Total virtual pins : N/A until Partition Merge
 Total block memory bits : N/A until Partition Merge
+Total DSP Blocks : N/A until Partition Merge
+Total HSSI RX PCSs : N/A until Partition Merge
+Total HSSI PMA RX Deserializers : N/A until Partition Merge
+Total HSSI TX PCSs : N/A until Partition Merge
+Total HSSI PMA TX Serializers : N/A until Partition Merge
 Total PLLs : N/A until Partition Merge
 Total DLLs : N/A until Partition Merge

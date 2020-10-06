@@ -38,6 +38,8 @@ reg freq_en = 0, count_en = 0, led_out = 0;
 reg [7:0] count_clk;
 wire [31:0] freq_mem; //регистр-хранилище для данных об измеряемой частоте
 
+logic freq_base, time_del;
+
 assign clk_in = lvds_freq;
 
 //=======================================================
@@ -55,7 +57,9 @@ Nios_display_system u0 (
 	  .lcd_rw_export   (GPIO[11]),   //    lcd_rw.export
 	  .sw_export       (SW),        //        sw.export
 	  .freq_export		 (freq_mem),     	//     freq.export
-	  .freq_en_export  (freq_en)  //   freq_en.export
+	  .freq_en_export  (freq_en),  //   freq_en.export
+	  .freq_base_export(freq_base),
+	  .time_del_export(time_del)
 
  );
  
@@ -74,6 +78,8 @@ Nios_display_system u0 (
 	
 	.clk_base(clk_base),
 	.clk_in(clk_in),
+	.freq_base(freq_base),
+	.time_del(time_del),
 	.freq_mem(freq_mem),
 	.cout_i(cout_i),
 	.cout_b(cout_b)

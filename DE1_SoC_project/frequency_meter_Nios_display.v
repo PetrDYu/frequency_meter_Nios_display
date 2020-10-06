@@ -70,6 +70,14 @@ wire clk_1, clk_2, clk_3, clk_0;
 
 assign clk_in = clk_2;
 
+reg [31:0] freq_base;//MHz
+
+logic [31:0] time_del;
+
+assign freq_base = SW[0] ? 31'd50_000_000 : 31'd200_000_000;
+
+assign time_del = SW[3:1];// + 1'b1;
+
 //=======================================================
 //  Structural coding
 //=======================================================
@@ -123,6 +131,8 @@ assign clk_in = clk_2;
 	
 	.clk_base(clk_base),
 	.clk_in(clk_in),
+	.freq_base(freq_base),
+	.time_del(time_del),
 	.freq_mem(freq_mem),
 	.cout_i(cout_i),
 	.cout_b(cout_b)

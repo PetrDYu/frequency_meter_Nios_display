@@ -9,7 +9,7 @@
 #include "hd44780_no_freertos.c"
 #include "alt_types.h"
 
-int n = 0;
+int n = 0, freq_base = 200000000, time_del = 0, sw0, sw123;
 
 void freq_to_lcd()
 {
@@ -41,11 +41,41 @@ void freq_to_lcd()
 
 }
 
+int set_freq_base()
+{
+
+	if (sw0 != IORD_ALTERA_AVALON_PIO_DATA(SW_BASE) & 0x01)
+	{
+		for(int i = 0; i < ALT_CPU_CPU_FREQ / 1000; i++);
+		sw0 = IORD_ALTERA_AVALON_PIO_DATA(SW_BASE) & 0x01;
+		if (sw0 == 0) freq_base = 200000000;
+		else freq_base = 50000000;
+		IOWR_ALTERA_AVALON_PIO_DATA(FREQ_BASE_BASE, freq_base);
+		printf("freq_base = %d",freq_base);
+	}
+}
+
+int set_time_del()
+{
+	if (sw123 != ((IORD_ALTERA_AVALON_PIO_DATA(SW_BASE) & 0x0E) >> 1))
+		{
+			for(int i = 0; i < ALT_CPU_CPU_FREQ / 1000; i++);
+			sw123 = ((IORD_ALTERA_AVALON_PIO_DATA(SW_BASE) & 0x0E) >> 1);
+			time_del = sw123;
+			IOWR_ALTERA_AVALON_PIO_DATA(TIME_DEL_BASE, time_del);
+			printf("time_del = %d",time_del);
+		}
+}
+
 int main()
 {
 	hd44780_init();
+	IOWR_ALTERA_AVALON_PIO_DATA(FREQ_BASE_BASE, freq_base);
+	IOWR_ALTERA_AVALON_PIO_DATA(TIME_DEL_BASE, time_del);
 	while(1)
 	{
+		set_freq_base();
+		set_time_del();
 		freq_to_lcd();
 	}
 }

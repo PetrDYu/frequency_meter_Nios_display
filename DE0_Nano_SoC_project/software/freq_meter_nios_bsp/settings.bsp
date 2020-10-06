@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>26.09.2020 15:05:47</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1601118347690</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>06.10.2020 12:19:58</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1601972398579</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\petry\OneDrive\Documents\GitHub\frequency_meter_Nios_display\DE0_Nano_SoC_project\software\freq_meter_nios_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\Nios_display_system.sopcinfo</SopcDesignFile>
@@ -900,73 +900,85 @@
         </Setting>
         <MemoryMap>
                 <slaveDescriptor>onchip_memory2_0</slaveDescriptor>
-                <addressRange>0x00080000 - 0x000B0D3F</addressRange>
+                <addressRange>0x00040000 - 0x00070D3F</addressRange>
                 <addressSpan>200000</addressSpan>
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>freq_base</slaveDescriptor>
+                <addressRange>0x00081000 - 0x0008100F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>time_del</slaveDescriptor>
+                <addressRange>0x00081010 - 0x0008101F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>freq_en</slaveDescriptor>
-                <addressRange>0x00101000 - 0x0010100F</addressRange>
+                <addressRange>0x00081020 - 0x0008102F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>lcd_e</slaveDescriptor>
-                <addressRange>0x00101010 - 0x0010101F</addressRange>
+                <addressRange>0x00081030 - 0x0008103F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>lcd_rw</slaveDescriptor>
-                <addressRange>0x00101020 - 0x0010102F</addressRange>
+                <addressRange>0x00081040 - 0x0008104F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>lcd_rs</slaveDescriptor>
-                <addressRange>0x00101030 - 0x0010103F</addressRange>
+                <addressRange>0x00081050 - 0x0008105F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>lcd_data</slaveDescriptor>
-                <addressRange>0x00101040 - 0x0010104F</addressRange>
+                <addressRange>0x00081060 - 0x0008106F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>sw</slaveDescriptor>
-                <addressRange>0x00101050 - 0x0010105F</addressRange>
+                <addressRange>0x00081070 - 0x0008107F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>freq</slaveDescriptor>
-                <addressRange>0x00101060 - 0x0010106F</addressRange>
+                <addressRange>0x00081080 - 0x0008108F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>led</slaveDescriptor>
-                <addressRange>0x00101070 - 0x0010107F</addressRange>
+                <addressRange>0x00081090 - 0x0008109F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>key</slaveDescriptor>
-                <addressRange>0x00101080 - 0x0010108F</addressRange>
+                <addressRange>0x000810A0 - 0x000810AF</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>sysid_qsys_0</slaveDescriptor>
-                <addressRange>0x00101098 - 0x0010109F</addressRange>
+                <addressRange>0x000810B8 - 0x000810BF</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>jtag_uart_0</slaveDescriptor>
-                <addressRange>0x001010A0 - 0x001010A7</addressRange>
+                <addressRange>0x000810C0 - 0x000810C7</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>

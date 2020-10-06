@@ -1,5 +1,5 @@
 Analysis & Synthesis report for frequency_meter_Nios_display
-Sun Sep 27 00:07:55 2020
+Tue Oct 06 11:16:35 2020
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 
 
@@ -23,24 +23,23 @@ Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
  15. Source assignments for sld_signaltap:auto_signaltap_0
  16. Parameter Settings for User Entity Instance: PLL_base:pll_base|PLL_base_0002:pll_base_inst|altera_pll:altera_pll_i
  17. Parameter Settings for User Entity Instance: PLL_temp:pll_temp|PLL_temp_0002:pll_temp_inst|altera_pll:altera_pll_i
- 18. Parameter Settings for User Entity Instance: freq_m_module:freq_meter
- 19. Parameter Settings for User Entity Instance: freq_m_module:freq_meter|Counter:b_c|lpm_counter:LPM_COUNTER_component
- 20. Parameter Settings for User Entity Instance: freq_m_module:freq_meter|Counter:i_c|lpm_counter:LPM_COUNTER_component
- 21. Parameter Settings for User Entity Instance: Counter_4:count_n_freq|lpm_counter:LPM_COUNTER_component
- 22. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
- 23. Port Connectivity Checks: "spi_slave:spi"
- 24. Port Connectivity Checks: "Counter_4:count_n_freq"
- 25. Port Connectivity Checks: "freq_m_module:freq_meter|Counter:i_c"
- 26. Port Connectivity Checks: "freq_m_module:freq_meter|Counter:b_c"
- 27. Port Connectivity Checks: "freq_m_module:freq_meter"
- 28. Port Connectivity Checks: "PLL_temp:pll_temp"
- 29. Port Connectivity Checks: "PLL_base:pll_base"
- 30. SignalTap II Logic Analyzer Settings
- 31. Post-Synthesis Netlist Statistics for Top Partition
- 32. Elapsed Time Per Partition
- 33. Connections to In-System Debugging Instance "auto_signaltap_0"
- 34. Analysis & Synthesis Messages
- 35. Analysis & Synthesis Suppressed Messages
+ 18. Parameter Settings for User Entity Instance: freq_m_module:freq_meter|Counter:b_c|lpm_counter:LPM_COUNTER_component
+ 19. Parameter Settings for User Entity Instance: freq_m_module:freq_meter|Counter:i_c|lpm_counter:LPM_COUNTER_component
+ 20. Parameter Settings for User Entity Instance: Counter_4:count_n_freq|lpm_counter:LPM_COUNTER_component
+ 21. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
+ 22. Port Connectivity Checks: "spi_slave:spi"
+ 23. Port Connectivity Checks: "Counter_4:count_n_freq"
+ 24. Port Connectivity Checks: "freq_m_module:freq_meter|Counter:i_c"
+ 25. Port Connectivity Checks: "freq_m_module:freq_meter|Counter:b_c"
+ 26. Port Connectivity Checks: "freq_m_module:freq_meter"
+ 27. Port Connectivity Checks: "PLL_temp:pll_temp"
+ 28. Port Connectivity Checks: "PLL_base:pll_base"
+ 29. SignalTap II Logic Analyzer Settings
+ 30. Post-Synthesis Netlist Statistics for Top Partition
+ 31. Elapsed Time Per Partition
+ 32. Connections to In-System Debugging Instance "auto_signaltap_0"
+ 33. Analysis & Synthesis Messages
+ 34. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -67,7 +66,7 @@ agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Sep 27 00:07:55 2020           ;
+; Analysis & Synthesis Status     ; Successful - Tue Oct 06 11:16:35 2020           ;
 ; Quartus Prime Version           ; 16.0.0 Build 211 04/27/2016 SJ Standard Edition ;
 ; Revision Name                   ; frequency_meter_Nios_display                    ;
 ; Top-level Entity Name           ; frequency_meter_Nios_display                    ;
@@ -95,6 +94,8 @@ agreement for further details.
 ; Device                                                                          ; 5CSEMA5F31C6                 ;                              ;
 ; Top-level entity name                                                           ; frequency_meter_Nios_display ; frequency_meter_Nios_display ;
 ; Family name                                                                     ; Cyclone V                    ; Cyclone V                    ;
+; Verilog Show LMF Mapping Messages                                               ; Off                          ;                              ;
+; Verilog Version                                                                 ; SystemVerilog_2005           ; Verilog_2001                 ;
 ; Use smart compilation                                                           ; Off                          ; Off                          ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                           ; On                           ;
 ; Enable compact report table                                                     ; Off                          ; Off                          ;
@@ -103,7 +104,6 @@ agreement for further details.
 ; Create Debugging Nodes for IP Cores                                             ; Off                          ; Off                          ;
 ; Preserve fewer node names                                                       ; On                           ; On                           ;
 ; Disable OpenCore Plus hardware evaluation                                       ; Off                          ; Off                          ;
-; Verilog Version                                                                 ; Verilog_2001                 ; Verilog_2001                 ;
 ; VHDL Version                                                                    ; VHDL_1993                    ; VHDL_1993                    ;
 ; State Machine Processing                                                        ; Auto                         ; Auto                         ;
 ; Safe State Machine                                                              ; Off                          ; Off                          ;
@@ -304,14 +304,14 @@ agreement for further details.
 +---------------------------------------------+--------------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                                ;
 +---------------------------------------------+--------------------------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 1206                                                                                 ;
+; Estimate of Logic utilization (ALMs needed) ; 1227                                                                                 ;
 ;                                             ;                                                                                      ;
-; Combinational ALUT usage for logic          ; 545                                                                                  ;
+; Combinational ALUT usage for logic          ; 646                                                                                  ;
 ;     -- 7 input functions                    ; 1                                                                                    ;
-;     -- 6 input functions                    ; 119                                                                                  ;
-;     -- 5 input functions                    ; 186                                                                                  ;
-;     -- 4 input functions                    ; 41                                                                                   ;
-;     -- <=3 input functions                  ; 198                                                                                  ;
+;     -- 6 input functions                    ; 173                                                                                  ;
+;     -- 5 input functions                    ; 184                                                                                  ;
+;     -- 4 input functions                    ; 74                                                                                   ;
+;     -- <=3 input functions                  ; 214                                                                                  ;
 ;                                             ;                                                                                      ;
 ; Dedicated logic registers                   ; 2295                                                                                 ;
 ;                                             ;                                                                                      ;
@@ -326,8 +326,8 @@ agreement for further details.
 ;                                             ;                                                                                      ;
 ; Maximum fan-out node                        ; PLL_base:pll_base|PLL_base_0002:pll_base_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
 ; Maximum fan-out                             ; 1568                                                                                 ;
-; Total fan-out                               ; 11055                                                                                ;
-; Average fan-out                             ; 3.32                                                                                 ;
+; Total fan-out                               ; 11608                                                                                ;
+; Average fan-out                             ; 3.38                                                                                 ;
 +---------------------------------------------+--------------------------------------------------------------------------------------+
 
 
@@ -336,7 +336,7 @@ agreement for further details.
 +-----------------------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                                                              ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                                      ; Entity Name                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
-; |frequency_meter_Nios_display                                                                                                           ; 545 (9)           ; 2295 (9)     ; 8192              ; 0          ; 150  ; 0            ; |frequency_meter_Nios_display                                                                                                                                                                                                                                                                                                                                            ; frequency_meter_Nios_display      ; work         ;
+; |frequency_meter_Nios_display                                                                                                           ; 646 (9)           ; 2295 (9)     ; 8192              ; 0          ; 150  ; 0            ; |frequency_meter_Nios_display                                                                                                                                                                                                                                                                                                                                            ; frequency_meter_Nios_display      ; work         ;
 ;    |Counter_4:count_n_freq|                                                                                                             ; 3 (0)             ; 2 (0)        ; 0                 ; 0          ; 0    ; 0            ; |frequency_meter_Nios_display|Counter_4:count_n_freq                                                                                                                                                                                                                                                                                                                     ; Counter_4                         ; work         ;
 ;       |lpm_counter:LPM_COUNTER_component|                                                                                               ; 3 (0)             ; 2 (0)        ; 0                 ; 0          ; 0    ; 0            ; |frequency_meter_Nios_display|Counter_4:count_n_freq|lpm_counter:LPM_COUNTER_component                                                                                                                                                                                                                                                                                   ; lpm_counter                       ; work         ;
 ;          |cntr_r5j:auto_generated|                                                                                                      ; 3 (3)             ; 2 (2)        ; 0                 ; 0          ; 0    ; 0            ; |frequency_meter_Nios_display|Counter_4:count_n_freq|lpm_counter:LPM_COUNTER_component|cntr_r5j:auto_generated                                                                                                                                                                                                                                                           ; cntr_r5j                          ; work         ;
@@ -346,7 +346,7 @@ agreement for further details.
 ;    |PLL_temp:pll_temp|                                                                                                                  ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |frequency_meter_Nios_display|PLL_temp:pll_temp                                                                                                                                                                                                                                                                                                                          ; PLL_temp                          ; PLL_temp     ;
 ;       |PLL_temp_0002:pll_temp_inst|                                                                                                     ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |frequency_meter_Nios_display|PLL_temp:pll_temp|PLL_temp_0002:pll_temp_inst                                                                                                                                                                                                                                                                                              ; PLL_temp_0002                     ; PLL_temp     ;
 ;          |altera_pll:altera_pll_i|                                                                                                      ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |frequency_meter_Nios_display|PLL_temp:pll_temp|PLL_temp_0002:pll_temp_inst|altera_pll:altera_pll_i                                                                                                                                                                                                                                                                      ; altera_pll                        ; work         ;
-;    |freq_m_module:freq_meter|                                                                                                           ; 78 (14)           ; 98 (34)      ; 0                 ; 0          ; 0    ; 0            ; |frequency_meter_Nios_display|freq_m_module:freq_meter                                                                                                                                                                                                                                                                                                                   ; freq_m_module                     ; work         ;
+;    |freq_m_module:freq_meter|                                                                                                           ; 179 (115)         ; 98 (34)      ; 0                 ; 0          ; 0    ; 0            ; |frequency_meter_Nios_display|freq_m_module:freq_meter                                                                                                                                                                                                                                                                                                                   ; freq_m_module                     ; work         ;
 ;       |Counter:b_c|                                                                                                                     ; 32 (0)            ; 32 (0)       ; 0                 ; 0          ; 0    ; 0            ; |frequency_meter_Nios_display|freq_m_module:freq_meter|Counter:b_c                                                                                                                                                                                                                                                                                                       ; Counter                           ; work         ;
 ;          |lpm_counter:LPM_COUNTER_component|                                                                                            ; 32 (0)            ; 32 (0)       ; 0                 ; 0          ; 0    ; 0            ; |frequency_meter_Nios_display|freq_m_module:freq_meter|Counter:b_c|lpm_counter:LPM_COUNTER_component                                                                                                                                                                                                                                                                     ; lpm_counter                       ; work         ;
 ;             |cntr_uui:auto_generated|                                                                                                   ; 32 (32)           ; 32 (32)      ; 0                 ; 0          ; 0    ; 0            ; |frequency_meter_Nios_display|freq_m_module:freq_meter|Counter:b_c|lpm_counter:LPM_COUNTER_component|cntr_uui:auto_generated                                                                                                                                                                                                                                             ; cntr_uui                          ; work         ;
@@ -573,7 +573,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Total registers                              ; 2295  ;
 ; Number of registers using Synchronous Clear  ; 108   ;
-; Number of registers using Synchronous Load   ; 225   ;
+; Number of registers using Synchronous Load   ; 249   ;
 ; Number of registers using Asynchronous Clear ; 679   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 646   ;
@@ -609,13 +609,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |frequency_meter_Nios_display|tdata[7] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |frequency_meter_Nios_display|tdata[2]                              ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |frequency_meter_Nios_display|freq_m_module:freq_meter|freq_mem[28] ;
+; 4:1                ; 25 bits   ; 50 LEs        ; 50 LEs               ; 0 LEs                  ; No         ; |frequency_meter_Nios_display|freq_m_module:freq_meter|ShiftLeft0   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------+
@@ -1130,16 +1132,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: freq_m_module:freq_meter ;
-+----------------+---------------------------------+--------------------+
-; Parameter Name ; Value                           ; Type               ;
-+----------------+---------------------------------+--------------------+
-; freq_base      ; 0001011111010111100001000000000 ; Unsigned Binary    ;
-+----------------+---------------------------------+--------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +---------------------------------------------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: freq_m_module:freq_meter|Counter:b_c|lpm_counter:LPM_COUNTER_component ;
 +------------------------+-------------+------------------------------------------------------------------------------+
@@ -1326,13 +1318,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "freq_m_module:freq_meter"                                                             ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; Port   ; Type   ; Severity ; Details                                                                             ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; cout_i ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "freq_m_module:freq_meter"                                                                        ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                             ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; freq_base[23..21] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; freq_base[15..14] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; freq_base[31..28] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; freq_base[11..10] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; freq_base[6..0]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; freq_base[26]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; freq_base[25]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; freq_base[19]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; freq_base[18]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; freq_base[17]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; freq_base[8]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; time_del[31..3]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; cout_i            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------+
@@ -1374,24 +1378,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     CLR               ; 38                          ;
 ;     ENA CLR           ; 9                           ;
 ;     SCLR              ; 32                          ;
-;     plain             ; 43                          ;
+;     SLD               ; 24                          ;
+;     plain             ; 19                          ;
 ; arriav_io_obuf        ; 53                          ;
-; arriav_lcell_comb     ; 106                         ;
-;     arith             ; 66                          ;
-;         1 data inputs ; 66                          ;
-;     normal            ; 40                          ;
+; arriav_lcell_comb     ; 207                         ;
+;     arith             ; 96                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 69                          ;
+;         4 data inputs ; 25                          ;
+;     normal            ; 111                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 3                           ;
-;         2 data inputs ; 3                           ;
-;         3 data inputs ; 1                           ;
-;         4 data inputs ; 4                           ;
-;         5 data inputs ; 7                           ;
-;         6 data inputs ; 21                          ;
+;         2 data inputs ; 9                           ;
+;         3 data inputs ; 6                           ;
+;         4 data inputs ; 12                          ;
+;         5 data inputs ; 5                           ;
+;         6 data inputs ; 75                          ;
 ; boundary_port         ; 216                         ;
 ; generic_pll           ; 3                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.10                        ;
-; Average LUT depth     ; 2.07                        ;
+; Max LUT depth         ; 6.20                        ;
+; Average LUT depth     ; 2.67                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1400,7 +1407,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -1708,7 +1715,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
-    Info: Processing started: Sun Sep 27 00:06:59 2020
+    Info: Processing started: Tue Oct 06 11:15:29 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off frequency_meter_Nios_display -c frequency_meter_Nios_display
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -1890,8 +1897,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file nios_di
     Info (12023): Found entity 1: Nios_display_system_freq_en File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/Nios_display_system/synthesis/submodules/Nios_display_system_freq_en.v Line: 21
 Info (12021): Found 1 design units, including 1 entities, in source file nios_display_system/synthesis/submodules/nios_display_system_freq.v
     Info (12023): Found entity 1: Nios_display_system_freq File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/Nios_display_system/synthesis/submodules/Nios_display_system_freq.v Line: 21
-Warning (10275): Verilog HDL Module Instantiation warning at frequency_meter_Nios_display.v(110): ignored dangling comma in List of Port Connections File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 110
-Warning (10275): Verilog HDL Module Instantiation warning at frequency_meter_Nios_display.v(227): ignored dangling comma in List of Port Connections File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 227
+Warning (10275): Verilog HDL Module Instantiation warning at frequency_meter_Nios_display.v(118): ignored dangling comma in List of Port Connections File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 118
+Warning (10275): Verilog HDL Module Instantiation warning at frequency_meter_Nios_display.v(237): ignored dangling comma in List of Port Connections File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 237
 Info (12021): Found 1 design units, including 1 entities, in source file frequency_meter_nios_display.v
     Info (12023): Found entity 1: frequency_meter_Nios_display File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file pll_base.v
@@ -1928,7 +1935,7 @@ Warning (10034): Output port "DRAM_LDQM" at frequency_meter_Nios_display.v(22) h
 Warning (10034): Output port "DRAM_RAS_N" at frequency_meter_Nios_display.v(23) has no driver File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 23
 Warning (10034): Output port "DRAM_UDQM" at frequency_meter_Nios_display.v(24) has no driver File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 24
 Warning (10034): Output port "DRAM_WE_N" at frequency_meter_Nios_display.v(25) has no driver File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 25
-Info (12128): Elaborating entity "PLL_base" for hierarchy "PLL_base:pll_base" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 110
+Info (12128): Elaborating entity "PLL_base" for hierarchy "PLL_base:pll_base" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 118
 Info (12128): Elaborating entity "PLL_base_0002" for hierarchy "PLL_base:pll_base|PLL_base_0002:pll_base_inst" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/PLL_base.v Line: 21
 Info (12128): Elaborating entity "altera_pll" for hierarchy "PLL_base:pll_base|PLL_base_0002:pll_base_inst|altera_pll:altera_pll_i" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/PLL_base/PLL_base_0002.v Line: 88
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
@@ -1994,7 +2001,7 @@ Info (12133): Instantiated megafunction "PLL_base:pll_base|PLL_base_0002:pll_bas
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "PLL_temp" for hierarchy "PLL_temp:pll_temp" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 119
+Info (12128): Elaborating entity "PLL_temp" for hierarchy "PLL_temp:pll_temp" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 127
 Info (12128): Elaborating entity "PLL_temp_0002" for hierarchy "PLL_temp:pll_temp|PLL_temp_0002:pll_temp_inst" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/PLL_temp.v Line: 26
 Info (12128): Elaborating entity "altera_pll" for hierarchy "PLL_temp:pll_temp|PLL_temp_0002:pll_temp_inst|altera_pll:altera_pll_i" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/PLL_temp/PLL_temp_0002.v Line: 94
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
@@ -2060,8 +2067,8 @@ Info (12133): Instantiated megafunction "PLL_temp:pll_temp|PLL_temp_0002:pll_tem
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "freq_m_module" for hierarchy "freq_m_module:freq_meter" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 130
-Info (12128): Elaborating entity "Counter" for hierarchy "freq_m_module:freq_meter|Counter:b_c" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/freq_m_module/freq_m_module.v Line: 80
+Info (12128): Elaborating entity "freq_m_module" for hierarchy "freq_m_module:freq_meter" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 140
+Info (12128): Elaborating entity "Counter" for hierarchy "freq_m_module:freq_meter|Counter:b_c" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/freq_m_module/freq_m_module.v Line: 81
 Info (12128): Elaborating entity "lpm_counter" for hierarchy "freq_m_module:freq_meter|Counter:b_c|lpm_counter:LPM_COUNTER_component" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/freq_m_module/Counter.v Line: 73
 Info (12130): Elaborated megafunction instantiation "freq_m_module:freq_meter|Counter:b_c|lpm_counter:LPM_COUNTER_component" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/freq_m_module/Counter.v Line: 73
 Info (12133): Instantiated megafunction "freq_m_module:freq_meter|Counter:b_c|lpm_counter:LPM_COUNTER_component" with the following parameter: File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/freq_m_module/Counter.v Line: 73
@@ -2072,7 +2079,7 @@ Info (12133): Instantiated megafunction "freq_m_module:freq_meter|Counter:b_c|lp
 Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_uui.tdf
     Info (12023): Found entity 1: cntr_uui File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/db/cntr_uui.tdf Line: 26
 Info (12128): Elaborating entity "cntr_uui" for hierarchy "freq_m_module:freq_meter|Counter:b_c|lpm_counter:LPM_COUNTER_component|cntr_uui:auto_generated" File: c:/altera/16.0/quartus/libraries/megafunctions/lpm_counter.tdf Line: 259
-Info (12128): Elaborating entity "Counter_4" for hierarchy "Counter_4:count_n_freq" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 207
+Info (12128): Elaborating entity "Counter_4" for hierarchy "Counter_4:count_n_freq" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 217
 Info (12128): Elaborating entity "lpm_counter" for hierarchy "Counter_4:count_n_freq|lpm_counter:LPM_COUNTER_component" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/Counter_4.v Line: 67
 Info (12130): Elaborated megafunction instantiation "Counter_4:count_n_freq|lpm_counter:LPM_COUNTER_component" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/Counter_4.v Line: 67
 Info (12133): Instantiated megafunction "Counter_4:count_n_freq|lpm_counter:LPM_COUNTER_component" with the following parameter: File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/Counter_4.v Line: 67
@@ -2084,7 +2091,7 @@ Info (12133): Instantiated megafunction "Counter_4:count_n_freq|lpm_counter:LPM_
 Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_r5j.tdf
     Info (12023): Found entity 1: cntr_r5j File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/db/cntr_r5j.tdf Line: 28
 Info (12128): Elaborating entity "cntr_r5j" for hierarchy "Counter_4:count_n_freq|lpm_counter:LPM_COUNTER_component|cntr_r5j:auto_generated" File: c:/altera/16.0/quartus/libraries/megafunctions/lpm_counter.tdf Line: 259
-Info (12128): Elaborating entity "spi_slave" for hierarchy "spi_slave:spi" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 227
+Info (12128): Elaborating entity "spi_slave" for hierarchy "spi_slave:spi" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 237
 Warning (10230): Verilog HDL assignment warning at spi_slave.v(74): truncated value with size 32 to match size of target (4) File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/spi_slave.v Line: 74
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_4884.tdf
     Info (12023): Found entity 1: altsyncram_4884 File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/db/altsyncram_4884.tdf Line: 28
@@ -2106,7 +2113,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr
     Info (12023): Found entity 1: cmpr_99c File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/db/cmpr_99c.tdf Line: 23
 Info (12033): Analysis and Synthesis generated SignalTap II or debug node instance "auto_signaltap_0"
 Info (11170): Start IP generation for the debug fabric within sld_hub.
-Info (11172): 2020.09.27.01:07:35 Progress: Loading sld1b87f5b5/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2020.10.06.12:16:06 Progress: Loading sld1b87f5b5/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -2313,17 +2320,13 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 18 node(s), including 0 DDIO, 3 PLL, 0 transceiver and 0 LCELL
 Warning: OUTCLK port on the PLL is not properly connected on instance PLL_temp:pll_temp|PLL_temp_0002:pll_temp_inst|altera_pll:altera_pll_i|general[0].gpll. The output clock port on the PLL must be connected. File: c:/altera/16.0/quartus/libraries/megafunctions/altera_pll.v Line: 749
     Info: Must be connected
-Warning (21074): Design contains 17 input pin(s) that do not drive logic
+Warning (21074): Design contains 13 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "CLOCK2_50" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 9
     Warning (15610): No output dependent on input pin "CLOCK3_50" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 10
     Warning (15610): No output dependent on input pin "CLOCK4_50" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 11
     Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 36
     Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 36
     Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 36
-    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 42
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 42
-    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 42
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 42
     Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 42
     Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 42
     Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 42
@@ -2331,18 +2334,18 @@ Warning (21074): Design contains 17 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 42
     Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 42
     Warning (15610): No output dependent on input pin "SPI_DIN" File: C:/Users/petry/OneDrive/Documents/GitHub/frequency_meter_Nios_display/DE1_SoC_project/frequency_meter_Nios_display.v Line: 52
-Info (21057): Implemented 2746 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2836 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 24 input pins
     Info (21059): Implemented 78 output pins
     Info (21060): Implemented 52 bidirectional pins
-    Info (21061): Implemented 2460 logic cells
+    Info (21061): Implemented 2550 logic cells
     Info (21064): Implemented 128 RAM segments
     Info (21065): Implemented 3 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 226 warnings
-    Info: Peak virtual memory: 5163 megabytes
-    Info: Processing ended: Sun Sep 27 00:07:55 2020
-    Info: Elapsed time: 00:00:56
-    Info: Total CPU time (on all processors): 00:01:31
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 222 warnings
+    Info: Peak virtual memory: 5157 megabytes
+    Info: Processing ended: Tue Oct 06 11:16:36 2020
+    Info: Elapsed time: 00:01:07
+    Info: Total CPU time (on all processors): 00:01:35
 
 
 +------------------------------------------+
