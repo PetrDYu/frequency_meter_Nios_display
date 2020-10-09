@@ -1,17 +1,17 @@
-Partition Merge Status : Successful - Tue Oct 06 11:06:38 2020
+Partition Merge Status : Successful - Fri Oct 09 17:06:08 2020
 Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 Revision Name : frequency_meter_Nios_display
 Top-level Entity Name : frequency_meter_Nios_display
 Family : Cyclone V
-Logic utilization (in ALMs) : N/A
-Total registers : 2829
-Total pins : 54
+Logic utilization (in ALMs) : 3,095 / 15,880 ( 19 % )
+Total registers : 4791
+Total pins : 55 / 314 ( 18 % )
 Total virtual pins : 0
-Total block memory bits : 1,664,960
-Total DSP Blocks : 3
+Total block memory bits : 1,730,496 / 2,764,800 ( 63 % )
+Total DSP Blocks : 3 / 84 ( 4 % )
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
 Total HSSI TX PCSs : 0
 Total HSSI PMA TX Serializers : 0
-Total PLLs : 1
-Total DLLs : 0
+Total PLLs : 1 / 5 ( 20 % )
+Total DLLs : 0 / 4 ( 0 % )

@@ -80,19 +80,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "FPGA_CLK1_50",
-					"strict" : false
-				},
-				{
-					"name" : "KEY[0]",
-					"strict" : false
-				},
-				{
-					"name" : "KEY[1]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[0]",
+					"name" : "GPIO[30]",
 					"strict" : false
 				},
 				{
@@ -108,7 +96,27 @@
 					"strict" : false
 				},
 				{
+					"name" : "KEY[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[0]",
+					"strict" : false
+				},
+				{
 					"name" : "lvds_freq",
+					"strict" : false
+				},
+				{
+					"name" : "lvds_freq(n)",
+					"strict" : false
+				},
+				{
+					"name" : "FPGA_CLK1_50",
+					"strict" : false
+				},
+				{
+					"name" : "KEY[0]",
 					"strict" : false
 				}
 			]

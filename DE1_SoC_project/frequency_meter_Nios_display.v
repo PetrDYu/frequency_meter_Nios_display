@@ -236,4 +236,13 @@ assign LEDR[2] = SPI_SCK;
 	
 );
 
+always @(posedge cout_b)
+begin
+	
+	led_out = led_out + 1'b1;
+	
+end
+
+assign LEDR[0] = led_out;
+
 endmodule

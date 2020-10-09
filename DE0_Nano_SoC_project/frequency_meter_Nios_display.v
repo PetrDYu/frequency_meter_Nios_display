@@ -38,9 +38,11 @@ reg freq_en = 0, count_en = 0, led_out = 0;
 reg [7:0] count_clk;
 wire [31:0] freq_mem; //регистр-хранилище для данных об измеряемой частоте
 
-logic freq_base, time_del;
+logic freq_base, time_del, freq_base1;
 
-assign clk_in = lvds_freq;
+assign clk_in = lvds_freq;//Входной провод для измеряемой частоты
+
+assign freq_base = freq_base1;// попытка исправить ошибку
 
 //=======================================================
 //  Structural coding
@@ -50,7 +52,7 @@ Nios_display_system u0 (
 	  .clk_clk       (FPGA_CLK1_50),       //   clk.clk
 	  .reset_reset_n (KEY[0]), // reset.reset_n
 	  .key_export    (KEY[1]),    //   key.export
-	  .led_export    (LED),     //   led.export
+	  .led_export    ({LED[7:1], GPIO[30]}),     //   led.export
 	  .lcd_data_export (GPIO[20:13]), //  lcd_data.export
 	  .lcd_e_export    (GPIO[12]),    //     lcd_e.export
 	  .lcd_rs_export   (GPIO[10]),   //    lcd_rs.export
@@ -58,11 +60,11 @@ Nios_display_system u0 (
 	  .sw_export       (SW),        //        sw.export
 	  .freq_export		 (freq_mem),     	//     freq.export
 	  .freq_en_export  (freq_en),  //   freq_en.export
-	  .freq_base_export(freq_base),
+	  .freq_base_export(freq_base1),
 	  .time_del_export(time_del)
 
  );
- 
+ //PLL, генерирующее опорную частоту 200 МГц
  PLL_base pll_base
  (
 	
@@ -72,7 +74,7 @@ Nios_display_system u0 (
 	//.outclk_1(clk_in)
 	
  );
- 
+ //модуль частотомера
  freq_m_module freq_meter
 (
 	
@@ -85,7 +87,7 @@ Nios_display_system u0 (
 	.cout_b(cout_b)
 	
 );
-
+//продление сигнала переполнения счётчика опорной частоты (cout_b) на 100 тактов для того, чтобы Nios успел его зарегистрировать
 always @(posedge clk_base)
 begin
 	
@@ -99,7 +101,7 @@ begin
 	
 	if (count_en == 1'b1) count_clk = count_clk + 1'b1;
 	
-	if (count_clk == 8'd1000)
+	if (count_clk == 8'd100)
 	begin
 		
 		freq_en = 1'b0;
@@ -109,5 +111,14 @@ begin
 	end
 	
 end
+//отладочное мигание светодиодом с каждым обновлением значения частоты
+always @(posedge cout_b)
+begin
+	
+	led_out = led_out + 1'b1;
+	
+end
+
+assign LED[0] = led_out;
 
 endmodule

@@ -1,5 +1,5 @@
 Assembler report for frequency_meter_Nios_display
-Tue Oct 06 11:19:24 2020
+Fri Oct 09 15:56:41 2020
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 
 
@@ -39,7 +39,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Tue Oct 06 11:19:24 2020 ;
+; Assembler Status      ; Successful - Fri Oct 09 15:56:41 2020 ;
 ; Revision Name         ; frequency_meter_Nios_display          ;
 ; Top-level Entity Name ; frequency_meter_Nios_display          ;
 ; Family                ; Cyclone V                             ;
@@ -79,8 +79,8 @@ agreement for further details.
 ; Option         ; Setting                                                                                                                         ;
 +----------------+---------------------------------------------------------------------------------------------------------------------------------+
 ; Device         ; 5CSEMA5F31C6                                                                                                                    ;
-; JTAG usercode  ; 0x00E1E667                                                                                                                      ;
-; Checksum       ; 0x00E1E667                                                                                                                      ;
+; JTAG usercode  ; 0x00C22605                                                                                                                      ;
+; Checksum       ; 0x00C22605                                                                                                                      ;
 +----------------+---------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -90,14 +90,14 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
-    Info: Processing started: Tue Oct 06 11:19:12 2020
+    Info: Processing started: Fri Oct 09 15:56:30 2020
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off frequency_meter_Nios_display -c frequency_meter_Nios_display
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 5050 megabytes
-    Info: Processing ended: Tue Oct 06 11:19:24 2020
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:13
+    Info: Peak virtual memory: 5042 megabytes
+    Info: Processing ended: Fri Oct 09 15:56:41 2020
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:11
 
 

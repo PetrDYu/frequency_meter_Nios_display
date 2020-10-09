@@ -4,7 +4,7 @@ FPGA_CLK2_50 => ~NO_FANOUT~
 FPGA_CLK3_50 => ~NO_FANOUT~
 KEY[0] => KEY[0].IN1
 KEY[1] => KEY[1].IN1
-LED[0] <= Nios_display_system:u0.led_export
+LED[0] <= led_out.DB_MAX_OUTPUT_PORT_TYPE
 LED[1] <= Nios_display_system:u0.led_export
 LED[2] <= Nios_display_system:u0.led_export
 LED[3] <= Nios_display_system:u0.led_export
@@ -46,7 +46,7 @@ GPIO[26] <> <UNC>
 GPIO[27] <> <UNC>
 GPIO[28] <> <UNC>
 GPIO[29] <> <UNC>
-GPIO[30] <> <UNC>
+GPIO[30] <> Nios_display_system:u0.led_export
 GPIO[31] <> <UNC>
 GPIO[32] <> <UNC>
 GPIO[33] <> <UNC>
