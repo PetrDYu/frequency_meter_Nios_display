@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="PLL_Nios_sim/PLL_Nios.vo" type="VERILOG" />
+ <topLevel name="PLL_Nios" />
+ <deviceFamily name="cyclonev" />
+</simPackage>

@@ -2,6 +2,7 @@
 module Nios_display_system (
 	clk_clk,
 	freq_export,
+	freq_base_export,
 	freq_en_export,
 	key_export,
 	lcd_data_export,
@@ -11,11 +12,11 @@ module Nios_display_system (
 	led_export,
 	reset_reset_n,
 	sw_export,
-	freq_base_export,
 	time_del_export);	
 
 	input		clk_clk;
 	input	[31:0]	freq_export;
+	output	[31:0]	freq_base_export;
 	input		freq_en_export;
 	input		key_export;
 	inout	[7:0]	lcd_data_export;
@@ -25,6 +26,5 @@ module Nios_display_system (
 	output	[7:0]	led_export;
 	input		reset_reset_n;
 	input	[3:0]	sw_export;
-	output	[31:0]	freq_base_export;
 	output	[31:0]	time_del_export;
 endmodule

@@ -33,23 +33,33 @@ module frequency_meter_Nios_display(
 //  REG/WIRE declarations
 //=======================================================
 
-wire cout_i, cout_b, clk_base, clk_in;
+wire cout_i, cout_b, clk_base, clk_in, clk_nios;
 reg freq_en = 0, count_en = 0, led_out = 0;
 reg [7:0] count_clk;
 wire [31:0] freq_mem; //регистр-хранилище для данных об измеряемой частоте
 
-logic freq_base, time_del, freq_base1;
+logic [31:0] freq_base, time_del;
 
-assign clk_in = lvds_freq;//Входной провод для измеряемой частоты
+//assign clk_in = lvds_freq;//Входной провод для измеряемой частоты
 
-assign freq_base = freq_base1;// попытка исправить ошибку
 
 //=======================================================
 //  Structural coding
 //=======================================================
 
+PLL_All pll_all
+(
+	
+	.refclk(FPGA_CLK1_50),
+	.rst(~KEY[0]),
+	.outclk_0(clk_nios),
+	.outclk_1(clk_in),
+	.outclk_2(clk_base)
+	
+);
+
 Nios_display_system u0 (
-	  .clk_clk       (FPGA_CLK1_50),       //   clk.clk
+	  .clk_clk       (clk_nios),       //   clk.clk
 	  .reset_reset_n (KEY[0]), // reset.reset_n
 	  .key_export    (KEY[1]),    //   key.export
 	  .led_export    ({LED[7:1], GPIO[30]}),     //   led.export
@@ -60,20 +70,20 @@ Nios_display_system u0 (
 	  .sw_export       (SW),        //        sw.export
 	  .freq_export		 (freq_mem),     	//     freq.export
 	  .freq_en_export  (freq_en),  //   freq_en.export
-	  .freq_base_export(freq_base1),
+	  .freq_base_export(freq_base),
 	  .time_del_export(time_del)
 
  );
  //PLL, генерирующее опорную частоту 200 МГц
- PLL_base pll_base
+/* PLL_base pll_base
  (
 	
 	.refclk(FPGA_CLK1_50),
 	.rst(~KEY[0]),
 	.outclk_0(clk_base),
-	//.outclk_1(clk_in)
+	.outclk_1(clk_in)
 	
- );
+ );*/
  //модуль частотомера
  freq_m_module freq_meter
 (
