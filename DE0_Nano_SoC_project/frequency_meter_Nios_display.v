@@ -38,10 +38,11 @@ reg freq_en = 0, count_en = 0, led_out = 0;
 reg [7:0] count_clk;
 wire [31:0] freq_mem; //регистр-хранилище для данных об измеряемой частоте
 
-logic [31:0] freq_base, time_del;
+logic [2:0] freq_base, time_del;
 
 //assign clk_in = lvds_freq;//Входной провод для измеряемой частоты
 
+assign freq_en = cout_b;
 
 //=======================================================
 //  Structural coding
@@ -85,7 +86,7 @@ Nios_display_system u0 (
 	
  );*/
  //модуль частотомера
- freq_m_module freq_meter
+ freq_m_module #(4) freq_meter
 (
 	
 	.clk_base(clk_base),
@@ -94,11 +95,12 @@ Nios_display_system u0 (
 	.time_del(time_del),
 	.freq_mem(freq_mem),
 	.cout_i(cout_i),
-	.cout_b(cout_b)
+	.cout_b(cout_b),
+	.reset(~KEY[1])
 	
 );
 //продление сигнала переполнения счётчика опорной частоты (cout_b) на 100 тактов для того, чтобы Nios успел его зарегистрировать
-always @(posedge clk_base)
+/*always @(posedge clk_base)
 begin
 	
 	if (cout_b == 1'b1)
@@ -120,7 +122,7 @@ begin
 		
 	end
 	
-end
+end*/
 //отладочное мигание светодиодом с каждым обновлением значения частоты
 always @(posedge cout_b)
 begin

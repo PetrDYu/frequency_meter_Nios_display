@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'Nios_display_system'
  * SOPC Builder design path: ../../Nios_display_system.sopcinfo
  *
- * Generated: Mon Oct 12 02:47:52 MSK 2020
+ * Generated: Sat Nov 07 17:29:22 MSK 2020
  */
 
 /*
@@ -247,18 +247,18 @@
 #define FREQ_EN_BASE 0x81020
 #define FREQ_EN_BIT_CLEARING_EDGE_REGISTER 0
 #define FREQ_EN_BIT_MODIFYING_OUTPUT_REGISTER 0
-#define FREQ_EN_CAPTURE 0
+#define FREQ_EN_CAPTURE 1
 #define FREQ_EN_DATA_WIDTH 1
 #define FREQ_EN_DO_TEST_BENCH_WIRING 0
 #define FREQ_EN_DRIVEN_SIM_VALUE 0
-#define FREQ_EN_EDGE_TYPE "NONE"
+#define FREQ_EN_EDGE_TYPE "ANY"
 #define FREQ_EN_FREQ 100000000
 #define FREQ_EN_HAS_IN 1
 #define FREQ_EN_HAS_OUT 0
 #define FREQ_EN_HAS_TRI 0
-#define FREQ_EN_IRQ -1
-#define FREQ_EN_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define FREQ_EN_IRQ_TYPE "NONE"
+#define FREQ_EN_IRQ 1
+#define FREQ_EN_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define FREQ_EN_IRQ_TYPE "EDGE"
 #define FREQ_EN_NAME "/dev/freq_en"
 #define FREQ_EN_RESET_VALUE 0
 #define FREQ_EN_SPAN 16
@@ -524,7 +524,7 @@
 #define SYSID_QSYS_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_0_NAME "/dev/sysid_qsys_0"
 #define SYSID_QSYS_0_SPAN 8
-#define SYSID_QSYS_0_TIMESTAMP 1602455547
+#define SYSID_QSYS_0_TIMESTAMP 1604755236
 #define SYSID_QSYS_0_TYPE "altera_avalon_sysid_qsys"
 
 

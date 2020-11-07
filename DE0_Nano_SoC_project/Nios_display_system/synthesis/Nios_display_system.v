@@ -88,8 +88,11 @@ module Nios_display_system (
 	wire   [1:0] mm_interconnect_0_lcd_e_s1_address;                          // mm_interconnect_0:lcd_e_s1_address -> lcd_e:address
 	wire         mm_interconnect_0_lcd_e_s1_write;                            // mm_interconnect_0:lcd_e_s1_write -> lcd_e:write_n
 	wire  [31:0] mm_interconnect_0_lcd_e_s1_writedata;                        // mm_interconnect_0:lcd_e_s1_writedata -> lcd_e:writedata
+	wire         mm_interconnect_0_freq_en_s1_chipselect;                     // mm_interconnect_0:freq_en_s1_chipselect -> freq_en:chipselect
 	wire  [31:0] mm_interconnect_0_freq_en_s1_readdata;                       // freq_en:readdata -> mm_interconnect_0:freq_en_s1_readdata
 	wire   [1:0] mm_interconnect_0_freq_en_s1_address;                        // mm_interconnect_0:freq_en_s1_address -> freq_en:address
+	wire         mm_interconnect_0_freq_en_s1_write;                          // mm_interconnect_0:freq_en_s1_write -> freq_en:write_n
+	wire  [31:0] mm_interconnect_0_freq_en_s1_writedata;                      // mm_interconnect_0:freq_en_s1_writedata -> freq_en:writedata
 	wire         mm_interconnect_0_time_del_s1_chipselect;                    // mm_interconnect_0:time_del_s1_chipselect -> time_del:chipselect
 	wire  [31:0] mm_interconnect_0_time_del_s1_readdata;                      // time_del:readdata -> mm_interconnect_0:time_del_s1_readdata
 	wire   [1:0] mm_interconnect_0_time_del_s1_address;                       // mm_interconnect_0:time_del_s1_address -> time_del:address
@@ -101,6 +104,7 @@ module Nios_display_system (
 	wire         mm_interconnect_0_freq_base_s1_write;                        // mm_interconnect_0:freq_base_s1_write -> freq_base:write_n
 	wire  [31:0] mm_interconnect_0_freq_base_s1_writedata;                    // mm_interconnect_0:freq_base_s1_writedata -> freq_base:writedata
 	wire         irq_mapper_receiver0_irq;                                    // jtag_uart_0:av_irq -> irq_mapper:receiver0_irq
+	wire         irq_mapper_receiver1_irq;                                    // freq_en:irq -> irq_mapper:receiver1_irq
 	wire  [31:0] nios2_gen2_0_irq_irq;                                        // irq_mapper:sender_irq -> nios2_gen2_0:irq
 	wire         rst_controller_reset_out_reset;                              // rst_controller:reset_out -> [freq:reset_n, freq_base:reset_n, freq_en:reset_n, irq_mapper:reset, jtag_uart_0:rst_n, key:reset_n, lcd_data:reset_n, lcd_e:reset_n, lcd_rs:reset_n, lcd_rw:reset_n, led:reset_n, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, nios2_gen2_0:reset_n, onchip_memory2_0:reset, rst_translator:in_reset, sw:reset_n, sysid_qsys_0:reset_n, time_del:reset_n]
 	wire         rst_controller_reset_out_reset_req;                          // rst_controller:reset_req -> [nios2_gen2_0:reset_req, onchip_memory2_0:reset_req, rst_translator:reset_req_in]
@@ -125,11 +129,15 @@ module Nios_display_system (
 	);
 
 	Nios_display_system_freq_en freq_en (
-		.clk      (clk_clk),                               //                 clk.clk
-		.reset_n  (~rst_controller_reset_out_reset),       //               reset.reset_n
-		.address  (mm_interconnect_0_freq_en_s1_address),  //                  s1.address
-		.readdata (mm_interconnect_0_freq_en_s1_readdata), //                    .readdata
-		.in_port  (freq_en_export)                         // external_connection.export
+		.clk        (clk_clk),                                 //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),         //               reset.reset_n
+		.address    (mm_interconnect_0_freq_en_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_freq_en_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_freq_en_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_freq_en_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_freq_en_s1_readdata),   //                    .readdata
+		.in_port    (freq_en_export),                          // external_connection.export
+		.irq        (irq_mapper_receiver1_irq)                 //                 irq.irq
 	);
 
 	Nios_display_system_jtag_uart_0 jtag_uart_0 (
@@ -145,7 +153,7 @@ module Nios_display_system (
 		.av_irq         (irq_mapper_receiver0_irq)                                     //               irq.irq
 	);
 
-	Nios_display_system_freq_en key (
+	Nios_display_system_key key (
 		.clk      (clk_clk),                           //                 clk.clk
 		.reset_n  (~rst_controller_reset_out_reset),   //               reset.reset_n
 		.address  (mm_interconnect_0_key_s1_address),  //                  s1.address
@@ -303,7 +311,10 @@ module Nios_display_system (
 		.freq_base_s1_writedata                         (mm_interconnect_0_freq_base_s1_writedata),                    //                                         .writedata
 		.freq_base_s1_chipselect                        (mm_interconnect_0_freq_base_s1_chipselect),                   //                                         .chipselect
 		.freq_en_s1_address                             (mm_interconnect_0_freq_en_s1_address),                        //                               freq_en_s1.address
+		.freq_en_s1_write                               (mm_interconnect_0_freq_en_s1_write),                          //                                         .write
 		.freq_en_s1_readdata                            (mm_interconnect_0_freq_en_s1_readdata),                       //                                         .readdata
+		.freq_en_s1_writedata                           (mm_interconnect_0_freq_en_s1_writedata),                      //                                         .writedata
+		.freq_en_s1_chipselect                          (mm_interconnect_0_freq_en_s1_chipselect),                     //                                         .chipselect
 		.jtag_uart_0_avalon_jtag_slave_address          (mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_address),     //            jtag_uart_0_avalon_jtag_slave.address
 		.jtag_uart_0_avalon_jtag_slave_write            (mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_write),       //                                         .write
 		.jtag_uart_0_avalon_jtag_slave_read             (mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_read),        //                                         .read
@@ -368,6 +379,7 @@ module Nios_display_system (
 		.clk           (clk_clk),                        //       clk.clk
 		.reset         (rst_controller_reset_out_reset), // clk_reset.reset
 		.receiver0_irq (irq_mapper_receiver0_irq),       // receiver0.irq
+		.receiver1_irq (irq_mapper_receiver1_irq),       // receiver1.irq
 		.sender_irq    (nios2_gen2_0_irq_irq)            //    sender.irq
 	);
 

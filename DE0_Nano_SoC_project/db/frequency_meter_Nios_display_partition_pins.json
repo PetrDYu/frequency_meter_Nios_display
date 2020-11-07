@@ -88,6 +88,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "KEY[1]",
+					"strict" : false
+				},
+				{
 					"name" : "SW[1]",
 					"strict" : false
 				},
@@ -97,10 +101,6 @@
 				},
 				{
 					"name" : "SW[3]",
-					"strict" : false
-				},
-				{
-					"name" : "KEY[1]",
 					"strict" : false
 				},
 				{

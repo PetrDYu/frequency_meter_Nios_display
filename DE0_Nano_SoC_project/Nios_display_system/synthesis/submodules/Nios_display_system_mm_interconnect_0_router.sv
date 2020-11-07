@@ -232,7 +232,7 @@ module Nios_display_system_mm_interconnect_0_router
     end
 
     // ( 0x81020 .. 0x81030 )
-    if ( {address[RG:PAD4],{PAD4{1'b0}}} == 20'h81020  && read_transaction  ) begin
+    if ( {address[RG:PAD4],{PAD4{1'b0}}} == 20'h81020   ) begin
             src_channel = 15'b001000000000000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 1;
     end

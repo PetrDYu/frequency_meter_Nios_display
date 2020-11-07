@@ -1,9 +1,10 @@
-module freq_m_module
+module freq_m_module #(parameter n = 4)
 (
+	input reset,
 	input clk_base, // опорная частота, по которой остчитывается промежуток времени (здесь 1с)
 	input clk_in, // измеряемая частота
-	input [31:0] freq_base, //регистр, содержащий значение опорной частоты. Если не требуется задавать извне, можно раскомментировать строку "parameter freq_base = ..."
-	input [31:0] time_del,//регистр, содержащий значение делителя, на который сдвигается значение опорной частоты для уменьшения интервала измерения
+	input [2:0] freq_base, //регистр, содержащий значение опорной частоты. Если не требуется задавать извне, можно раскомментировать строку "parameter freq_base = ..."
+	input [2:0] time_del,//регистр, содержащий значение делителя, на который сдвигается значение опорной частоты для уменьшения интервала измерения
 	output reg [31:0] freq_mem, // регистр, сохраняющий измеренное значение частоты сигнала, подаваемого на вход freq_in
 	output cout_i, // сигнал переполнения счётчика измеряемой частоты
 	output reg cout_b // сигнал переполнения счётчика опорной частоты
@@ -28,6 +29,13 @@ wire [31:0] freq_b, freq_i; // шины для передачи результа
 
 reg sclr_b = 0, aclr_i = 0;
 
+wire cout_b_1;
+
+reg [31:0] freq_base_reg, time_del_reg;
+
+assign freq_base_reg = freq_base[0] ? 'd100_000_000 : 'd400_000_000;
+assign time_del_reg = time_del;
+
 /* sclr_b - сигнал синхронного сброса счётчика опорной частоты
 	aclr_i - сигнал асинхронного сброса счётчика измеряемой частоты*/
 
@@ -45,36 +53,47 @@ always @(posedge clk_base)
 begin
 	
 	/*сигнал cout_b становится в 1, если счётчик опорной частоты досчитывает до значения ((freq_base  >> time_del) - 1)*/
-	if (freq_b == (freq_base >> time_del) - 1) cout_b = 1;
-	else cout_b = 0;
-	
+	if (freq_b == (freq_base_reg >> time_del_reg) - 1) cout_b_1 <= 1;
+	else cout_b_1 <= 0;
+
 	/* при достижении счётчиком опорной частоты значения (freq_base >> time_del) счётчики
 	опорной и измеряемой частоты сбрасываются в 0 при помощи сигналов sclr_b и aclr_i*/
-	if (freq_b == (freq_base >> time_del))
+	if (freq_b == (freq_base_reg >> time_del_reg))
 	begin
 	
-		sclr_b = 1;
-		aclr_i = 1;
+		sclr_b <= 1;
+		aclr_i <= 1;
 		
 	end
 	// после сброса счётчиков сигналы sclr_b и aclr_i устанавливаются обратно в 0	
 	if (freq_b == 1'b0)
 	begin
 	
-		sclr_b = 0;
-		aclr_i = 0;
+		sclr_b <= 0;
+		aclr_i <= 0;
 		
 	end
 	
 end
 
+cout_b_gen cout_gen
+(
+	
+	.clk(clk_base),
+	.reset(reset),
+	.freq_b(freq_b),
+	.freq_base(freq_base_reg),
+	.time_del(time_del_reg),
+	.cout_b(cout_b)
+	
+);
 
 //Счётчик опорной частоты
 
 Counter b_c
 (
 	
-	.aclr(1'b0),
+	.aclr(reset),
 	.clock(clk_base),
 	.sclr(sclr_b),
 	.q(freq_b)
@@ -86,7 +105,7 @@ Counter b_c
 Counter i_c
 (
 	
-	.aclr(aclr_i),
+	.aclr(aclr_i || reset),
 	.clock(clk_in),
 	.sclr(1'b0),
 	.cout(cout_i),
@@ -97,10 +116,10 @@ Counter i_c
 
 /* при установке сигнала cout_b в 1 значение измеряемой частоты (сдвинутое на делитель) 
 сохраняется в выходном регистре freq_mem*/
-always @(negedge cout_b)
+always @(negedge cout_b_1)
 begin
 	
-	freq_mem = freq_i << time_del;
+	freq_mem = freq_i << time_del_reg;
 	
 end
 
