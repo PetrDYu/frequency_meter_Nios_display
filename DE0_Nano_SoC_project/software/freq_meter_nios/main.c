@@ -11,7 +11,8 @@
 
 int n = 0, freq_base = 0, time_del = 0, sw0, sw123, len_znach = 0;
 
-static void handler_freq_en (void * context);
+static void handler_freq_en_0 (void * context);
+static void handler_freq_en_1 (void * context);
 
 void freq_to_lcd();
 void set_freq_base();
@@ -101,18 +102,35 @@ void set_time_del()
 static void init_freq_en_IRQ()
 {
 	void* edge_capture_ptr = (void*) &edge_capture;
-	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(FREQ_EN_BASE, 0xf);
-	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(FREQ_EN_BASE, 0x0);
-	alt_ic_isr_register(FREQ_EN_IRQ_INTERRUPT_CONTROLLER_ID,
-	FREQ_EN_IRQ,
-	handler_freq_en,
+	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(FREQ_EN_0_BASE, 0xf);
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(FREQ_EN_0_BASE, 0x0);
+	alt_ic_isr_register(FREQ_EN_0_IRQ_INTERRUPT_CONTROLLER_ID,
+	FREQ_EN_0_IRQ,
+	handler_freq_en_0,
+	edge_capture_ptr, 0x0);
+
+	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(FREQ_EN_1_BASE, 0xf);
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(FREQ_EN_1_BASE, 0x0);
+	alt_ic_isr_register(FREQ_EN_1_IRQ_INTERRUPT_CONTROLLER_ID,
+	FREQ_EN_1_IRQ,
+	handler_freq_en_1,
 	edge_capture_ptr, 0x0);
 }
 
-static void handler_freq_en (void * context)
+static void handler_freq_en_0 (void * context)
 {
 	volatile int* edge_capture_ptr = (volatile int*) context;
 
-	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(FREQ_EN_BASE, 0);
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(FREQ_EN_0_BASE, 0);
 	freq_to_lcd();
+	alt_putstr("falling\n");
+}
+
+static void handler_freq_en_1 (void * context)
+{
+	volatile int* edge_capture_ptr = (volatile int*) context;
+
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(FREQ_EN_1_BASE, 0);
+	freq_to_lcd();
+	alt_putstr("rising\n");
 }

@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>07.11.2020 17:29:21</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1604755761833</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>08.11.2020 1:55:12</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1604786112882</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\petry\OneDrive\Documents\GitHub\frequency_meter_Nios_display\DE0_Nano_SoC_project\software\freq_meter_nios_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\Nios_display_system.sopcinfo</SopcDesignFile>
@@ -899,6 +899,12 @@
                 <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
         </Setting>
         <MemoryMap>
+                <slaveDescriptor>freq_en_0</slaveDescriptor>
+                <addressRange>0x00000000 - 0x0000000F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>onchip_memory2_0</slaveDescriptor>
                 <addressRange>0x00040000 - 0x00070D3F</addressRange>
                 <addressSpan>200000</addressSpan>
@@ -917,7 +923,7 @@
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>freq_en</slaveDescriptor>
+                <slaveDescriptor>freq_en_1</slaveDescriptor>
                 <addressRange>0x00081020 - 0x0008102F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>

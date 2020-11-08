@@ -294,8 +294,8 @@ trigger;]]>
       </trigger>
     </signal_set>
     <position_info>
-      <single attribute="active tab" value="0"/>
-      <single attribute="data horizontal scroll position" value="30"/>
+      <single attribute="active tab" value="1"/>
+      <single attribute="data horizontal scroll position" value="0"/>
       <single attribute="data vertical scroll position" value="0"/>
       <single attribute="setup horizontal scroll position" value="66"/>
       <single attribute="setup vertical scroll position" value="0"/>
@@ -313,7 +313,7 @@ trigger;]]>
     <single attribute="active instance" value="0"/>
     <single attribute="config widget visible" value="1"/>
     <single attribute="data log widget visible" value="1"/>
-    <single attribute="hierarchy widget height" value="125"/>
+    <single attribute="hierarchy widget height" value="123"/>
     <single attribute="hierarchy widget visible" value="1"/>
     <single attribute="instance widget visible" value="1"/>
     <single attribute="jtag widget visible" value="1"/>
