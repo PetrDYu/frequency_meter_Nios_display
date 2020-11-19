@@ -10,9 +10,10 @@ module cout_b_gen #(parameter N = 1)(
 
 generate
 
-	if(N == 1)			begin	typedef enum logic [1:0] {S0, S1} statetype;	end
-	else if (N == 2)	begin	typedef enum logic [1:0] {S0, S1, S2, S3} statetype;	end
-	else					begin	typedef enum logic [1:0] {S0, S1, S2, S3, S4, S5} statetype;	end
+	if(N == 1)			begin	typedef enum logic [1:0]	{S0, S1} statetype;	end
+	else if (N == 2)	begin	typedef enum logic [1:0]	{S0, S1, S2, S3} statetype;	end
+	else if (N == 3)	begin	typedef enum logic [2:0]	{S0, S1, S2, S3, S4, S5} statetype;	end
+	else					begin	typedef enum logic [2:0]	{S0, S1, S2, S3, S4, S5, S6, S7} statetype;	end
 
 endgenerate
 
@@ -47,7 +48,7 @@ generate
 				default:	nextstate = S0;
 			endcase
 	end
-	else
+	else if (N == 3)
 	begin
 		always_comb
 			case (state)
@@ -58,6 +59,22 @@ generate
 				S3:		nextstate = S4;
 				S4:		nextstate = S5;
 				S5:		nextstate = S0;
+				default:	nextstate = S0;
+			endcase
+	end
+	else
+	begin
+		always_comb
+			case (state)
+				S0:		if (freq_b == ((freq_base >> time_del) - 1))	nextstate = S1;
+							else 														nextstate = S0;
+				S1:		nextstate = S2;
+				S2:		nextstate = S3;
+				S3:		nextstate = S4;
+				S4:		nextstate = S5;
+				S5:		nextstate = S6;
+				S6:		nextstate = S7;
+				S7:		nextstate = S0;
 				default:	nextstate = S0;
 			endcase
 	end

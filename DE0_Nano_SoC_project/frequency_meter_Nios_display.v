@@ -69,8 +69,7 @@ Nios_display_system u0 (
 	  .lcd_rw_export   (GPIO[11]),   //    lcd_rw.export
 	  .sw_export       (SW),        //        sw.export
 	  .freq_export		 (freq_mem),     	//     freq.export
-	  .freq_en_0_export  (freq_en),  //   freq_en.export
-	  .freq_en_1_export  (freq_en),  //   freq_en.export
+	  .freq_en_export  (freq_en),  //   freq_en.export
 	  .freq_base_export(freq_base),
 	  .time_del_export(time_del)
 

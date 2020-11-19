@@ -36,7 +36,7 @@ reg [31:0] freq_base_reg, time_del_reg;
 assign freq_base_reg = freq_base[0] ? 'd100_000_000 : 'd400_000_000;
 assign time_del_reg = time_del;
 
-assign cout_b = cout_b_0 || cout_b_1;
+//assign cout_b = cout_b_0 || cout_b_1;
 
 /* sclr_b - сигнал синхронного сброса счётчика опорной частоты
 	aclr_i - сигнал асинхронного сброса счётчика измеряемой частоты*/
@@ -79,7 +79,7 @@ begin
 	
 end
 
-cout_b_gen #(2) cout_gen0
+cout_b_gen #(4) cout_gen0
 (
 	
 	.clk(clk_base),
@@ -87,11 +87,11 @@ cout_b_gen #(2) cout_gen0
 	.freq_b(freq_b),
 	.freq_base(freq_base_reg),
 	.time_del(time_del_reg),
-	.cout_b(cout_b_0)
+	.cout_b(cout_b)
 	
 );
 
-cout_b_gen #(2) cout_gen1
+/*cout_b_gen #(1) cout_gen1
 (
 	
 	.clk(clk_base),
@@ -101,7 +101,7 @@ cout_b_gen #(2) cout_gen1
 	.time_del(time_del_reg),
 	.cout_b(cout_b_1)
 	
-);
+);*/
 
 cout_b_gen #(1) cout_gen_base
 (

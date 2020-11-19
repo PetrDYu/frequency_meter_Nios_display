@@ -95,14 +95,14 @@ static bool read_busy(void)
 
 }
 
-static void hd44780_write(const alt_u8 data, const bool reg)
+static void hd44780_write(const alt_u8 data, const bool rs)
 {
 	set_output(TRUE);
 	//alt_putstr("set_output TRUE\n");
 	
 	IOWR_ALTERA_AVALON_PIO_DATA(LCD_RW_BASE, 0);
 	//alt_putstr("RW 0\n");
-	IOWR_ALTERA_AVALON_PIO_DATA(LCD_RS_BASE, reg);
+	IOWR_ALTERA_AVALON_PIO_DATA(LCD_RS_BASE, rs);
 	//alt_putstr("RS installed\n");
 	
 	if (MODE_8_OR_4 == 8) IOWR_ALTERA_AVALON_PIO_DATA(LCD_DATA_BASE, data);
